@@ -63,7 +63,8 @@ CTE3 = {
     "referenceDocumentNum": "DOC003",
 }
 
-ctes = [CTE1, CTE2, CTE3];
+ctes = [CTE1, CTE2, CTE3]
+
 
 def supship(accessToken: str):
     headers = {
@@ -73,9 +74,10 @@ def supship(accessToken: str):
 
     for cte in ctes:
         try:
-            res = requests.post(url=BASE_URL+"/supshipcte", json=cte, headers=headers)
+            res = requests.post(url=BASE_URL + "/supshipcte", json=cte, headers=headers)
             res.raise_for_status()
 
-            print(f"""{clr.Fore.GREEN}Successfully created CTE with- SSCC: {cte['sscc']}""")
+            print(f"{clr.Fore.GREEN}Successfully created CTE with- SSCC: {cte['sscc']}")
+            
         except Exception as ex:
-            print(ex);
+            print(ex)

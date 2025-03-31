@@ -2,23 +2,23 @@ import requests
 
 # API URL for login
 api_url = "http://fsma-loadbalancer-1104915305.us-east-2.elb.amazonaws.com/api/v1/auth/login"
+# api_url = "http://127.0.0.1:8080/api/v1/auth/login"
 
 # Login credentials
 payload = {
     "email": "user0@foodtraceai.com",  # Your username
-    "password": "123",                # Your password
-    "refreshToken": ""                # Leave this blank for now
+    "password": "123",  # Your password
+    # "refreshToken": "",  # Leave this blank for now
 }
 
 # Headers
-headers = {
-    "Content-Type": "application/json"  # Specify JSON data
-}
+headers = {"Content-Type": "application/json"}  # Specify JSON data
 
 # Call the Login API
 try:
     print("Attempting to log in...")
     response = requests.post(api_url, json=payload, headers=headers)
+    # response = requests.post(api_url, auth=(payload["email"], payload["password"]))
 
     # Check if login was successful
     if response.status_code == 200:

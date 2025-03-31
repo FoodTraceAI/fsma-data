@@ -16,6 +16,7 @@ def get_auth_token():
     headers = {"Content-Type": "application/json"}
     
     response = requests.post(url, json=payload, headers=headers)
+    print(response.status_code, "RES CODE")
     if response.status_code == 200:
         token = response.json().get("token")
         with open("auth_token.txt", "w") as file:

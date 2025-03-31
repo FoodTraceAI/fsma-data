@@ -47,6 +47,6 @@ def supship(accessToken: str):
                 url=f"{BASE_URL}/supshipcte/{cte['id']}", headers=headers
             )
             deleted.raise_for_status()
-            print(f"{clr.Fore.GREEN}Successfully deleted CTE with ID: {cte['id']}")
+            print(f"{clr.Fore.GREEN}Successfully deleted CTE with ID: {cte['id']}; SSCC: {cte['sscc']};")
         except Exception as ex:
-            print(f"{clr.Fore.RED}An occured while deleting CTE with ID: {cte['id']}")
+            print(f"{clr.Fore.RED}An occured while deleting CTE with ID: {cte['id']}; SSCC: {cte['sscc']};")
